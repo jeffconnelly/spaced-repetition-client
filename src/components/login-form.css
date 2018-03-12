@@ -1,0 +1,59 @@
+.form-wrapper {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  border: 1px solid white;
+  border-radius: 2px;
+  width: 350px;
+  height: 450px;
+  padding: 10px;
+  background:#f3f3f3;
+  font-size: 20px;
+}
+
+.login-form {
+  display: inline-block;
+  margin: 0 auto;
+  text-align: center;
+  height: 350px;
+}
+
+.labelInput {
+  display: inline-block;
+  padding: 20px;
+}
+
+.loginBtn {
+  display: inline-block;
+  margin-top: 30px;
+  width: 75px;
+}
+
+.close {
+    color: white;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+.close:hover {
+    cursor:pointer;
+  }
+
+input [type="text"] {
+  font-size: 20px;
+  height: 1rem;
+}
+
+.demo-header {
+  display: inline-block;
+  margin: 10px;
+  font-weight: 900;
+  font-size: 22px;
+}
+
+input, .demo-text {
+  font-size: 20px;
+}

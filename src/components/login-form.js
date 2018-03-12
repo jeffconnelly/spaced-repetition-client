@@ -3,6 +3,9 @@ import {Field, reduxForm, focus} from 'redux-form';
 import Input from './input';
 import {login} from '../actions/auth';
 import {required, nonEmpty} from '../validators';
+import {hideLoginForm} from '../actions/useractions';
+import './login-form.css';
+
 
 export class LoginForm extends React.Component {
     onSubmit(values) {
@@ -19,6 +22,7 @@ export class LoginForm extends React.Component {
             );
         }
         return (
+          <div className="form-wrapper">
             <form
                 className="login-form"
                 onSubmit={this.props.handleSubmit(values =>
@@ -44,7 +48,9 @@ export class LoginForm extends React.Component {
                 <button disabled={this.props.pristine || this.props.submitting}>
                     Log in
                 </button>
+                <span className="close js-close" onClick={() => this.props.dispatch(hideLoginForm()) }> &times; </span>
             </form>
+            </div>
         );
     }
 }
@@ -53,3 +59,5 @@ export default reduxForm({
     form: 'login',
     onSubmitFail: (errors, dispatch) => dispatch(focus('login', 'username'))
 })(LoginForm);
+
+

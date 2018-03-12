@@ -1,0 +1,19 @@
+.header {
+  margin: 0px 0px auto;
+  text-align: center;
+  border: .1px solid black;
+  height: 400px;
+  background-size: contain;
+  background-size: cover;
+	background-position: center;
+}
+
+.header-text {
+  margin-top: 150px;    
+  font-size: 4.5em;
+  backface-visibility: hidden;
+  color: #444b4b;
+  letter-spacing: 4.5px;
+  font-family: 'Montserrat';
+  font-weight: 300;
+}
