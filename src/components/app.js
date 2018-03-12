@@ -48,7 +48,6 @@ export class App extends React.Component {
                 <Header />
                 <Route exact path="/" component={LandingPage} />
                 <Route exact path="/dashboard" component={Dashboard} />
-                <Route exact path="/register" component={RegistrationPage} />
             </div>
         );
     }
@@ -61,3 +60,8 @@ const mapStateToProps = state => ({
 
 // Deal with update blocking - https://reacttraining.com/react-router/web/guides/dealing-with-update-blocking
 export default withRouter(connect(mapStateToProps)(App));
+
+
+//Route to registration page - taken off for now in favor of modal render of registration form
+// <Route exact path="/register" component={RegistrationPage} />
+
