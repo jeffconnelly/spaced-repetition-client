@@ -1,7 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
-
+import Modal from './modal.js';
+import Header from './header';
+import Vector from './vector.js';
 import LoginForm from './login-form';
 
 export function LandingPage(props) {
@@ -12,6 +14,8 @@ export function LandingPage(props) {
 
     return (
         <div className="home">
+        <Modal />
+        <Header />
         </div>
     );
 }

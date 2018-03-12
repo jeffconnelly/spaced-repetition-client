@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Route, withRouter} from 'react-router-dom';
+import {Route, withRouter, Link} from 'react-router-dom';
 
 import HeaderBar from './header-bar';
 import LandingPage from './landing-page';
@@ -42,28 +42,16 @@ export class App extends React.Component {
     }
 
     render() {
-
-      if (this.props.loggedIn !== true) {
-        return (
-          <div className="app">
-              <HeaderBar />
-              <Modal />
-              <Header />
-              <Route exact path="/" component={LandingPage} />
-          </div>
-      );
-      }
-      else {
-        return (
-          <div className="app">
-            <HeaderBar />
-            <Dashboard />
-            <Route exact path="/dashboard" component={Dashboard} />
-          </div>
+      return (
+        <div className="app">
+        <HeaderBar />
+        <Route exact path="/" component={LandingPage} />
+        <Route exact path="/dashboard" component={Dashboard} />
+        </div>
       );
     }
   }
-}
+
 
 const mapStateToProps = state => ({
     hasAuthToken: state.auth.authToken !== null,
@@ -78,8 +66,21 @@ export default withRouter(connect(mapStateToProps)(App));
 // <Route exact path="/register" component={RegistrationPage} />
 
 
-
-// <Vector />
-
-
-// <Route exact path="/dashboard" component={Dashboard} />
+// if (this.props.loggedIn !== true) {
+//   return (
+//     <div className="app">
+//         <HeaderBar />
+//         <Modal />
+//         <Header />
+//         <Route exact path="/dashboard" component={Dashboard} />
+//         <Route exact path="/" component={LandingPage} />
+//     </div>
+// );
+// }
+// else {
+//   return (
+//     <div className="app">
+//       <HeaderBar />
+//       <h1><Link to="/dashboard"></Link></h1>
+//     </div>
+// );
