@@ -12,7 +12,6 @@ export function LandingPage(props) {
 
     return (
         <div className="home">
-            <Link to="/register">Register</Link>
         </div>
     );
 }
@@ -24,3 +23,4 @@ const mapStateToProps = state => ({
 export default connect(mapStateToProps)(LandingPage);
 // <LoginForm />
 
+// <Link to="/register">Register</Link>

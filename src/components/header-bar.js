@@ -2,8 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {clearAuth} from '../actions/auth';
 import {showLoginForm } from '../actions/useractions';
+import {showRegistrationForm} from '../actions/useractions';
 import {clearAuthToken} from '../local-storage';
-
 import './header-bar.css';
 
 
@@ -14,6 +14,7 @@ export class HeaderBar extends React.Component {
     }
 
     render() {
+      console.log(this.props.showRegistrationForm);
         // Only render the log out button if we are logged in
         let logOutButton;
         if (this.props.loggedIn) {
@@ -25,7 +26,7 @@ export class HeaderBar extends React.Component {
             <div className="header-bar">
               <ul className="nav-bar-ul">
                 <li className="login-text" href="#" onClick={() => this.props.dispatch(showLoginForm())} >Login</li>
-                <li className="login-text" href="#" onClick={() => console.log('clicked login form!')} >Sign Up</li>
+                <li className="login-text" href="#" onClick={() => this.props.dispatch(showRegistrationForm())}>Sign Up</li>
                 {logOutButton}
                 </ul>
             </div>
@@ -36,10 +37,7 @@ export class HeaderBar extends React.Component {
 const mapStateToProps = state => ({
     loggedIn: state.auth.currentUser !== null,
     ShowLoginForm: state.userReducer.showLoginForm,
+    ShowRegistrationForm: state.userReducer.showRegistrationForm,
 });
 
 export default connect(mapStateToProps)(HeaderBar);
-
-
-// <li className="login-text" href="#" onClick={() => this.props.dispatch(showRegisterForm())} >Sign Up</li>
-

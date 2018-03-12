@@ -23,13 +23,14 @@ export class LoginForm extends React.Component {
         }
         return (
           <div className="form-wrapper">
+          <h1>Login</h1>
             <form
                 className="login-form"
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
                 )}>
                 {error}
-                <label htmlFor="username">Username</label>
+                <label className="labelInput" htmlFor="username">Username</label>
                 <Field
                     component={Input}
                     type="text"
@@ -37,7 +38,7 @@ export class LoginForm extends React.Component {
                     id="username"
                     validate={[required, nonEmpty]}
                 />
-                <label htmlFor="password">Password</label>
+                <label className="labelInput" htmlFor="password">Password</label>
                 <Field
                     component={Input}
                     type="password"

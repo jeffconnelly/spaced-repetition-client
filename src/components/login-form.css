@@ -11,6 +11,11 @@
   font-size: 20px;
 }
 
+h1 {
+  margin: 0px;
+  margin-bottom: 5px;
+}
+
 .login-form {
   display: inline-block;
   margin: 0 auto;
@@ -21,6 +26,11 @@
 .labelInput {
   display: inline-block;
   padding: 20px;
+}
+
+.labelInputReg {
+  display: inline-block;
+  padding: 12px;
 }
 
 .loginBtn {

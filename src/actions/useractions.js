@@ -10,3 +10,15 @@ export const hideLoginForm = () => ({
 });
 
 
+//Shows and Hides Registration Form Modal
+export const SHOW_REGISTRATION_FORM = 'SHOW_REGISTRATION_FORM';
+export const showRegistrationForm = () => ({
+    type: SHOW_REGISTRATION_FORM,
+});
+
+export const HIDE_REGISTRATION_FORM = 'HIDE_REGISTRATION_FORM';
+export const hideRegistrationForm = () => ({
+    type: HIDE_REGISTRATION_FORM,
+});
+
+

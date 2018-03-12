@@ -9,6 +9,7 @@ export default function Header(props) {
     <div className="header">
       <div className="header-wrapper">
       <h1 className="header-text">Luz</h1>
+      <button>Get Started</button>
       </div>
     </div>
   )
