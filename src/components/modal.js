@@ -11,14 +11,19 @@ export class Modal extends React.Component {
       display: 'show'
     }
 
-    if (this.props.ShowLoginForm === true) {
+    console.log(this.props.ShowRegistrationForm);
+    // console.log(this.props.userLoggedIn);
+    console.log(this.props.currentUser);
+
+
+    if (this.props.ShowLoginForm === true && this.props.currentUser === null) {
       return (
         <section style={loginStyle} className="login-modal">
         <LoginForm />
         </section>
       );
     }
-    else if (this.props.ShowRegistrationForm === true) {
+    if (this.props.ShowRegistrationForm) {
       return (
         <section style={loginStyle} className="login-modal">
         <RegistrationForm />
@@ -36,7 +41,8 @@ export class Modal extends React.Component {
 const mapStateToProps = state => ({
   ShowLoginForm: state.userReducer.showLoginForm,
   ShowRegistrationForm: state.userReducer.showRegistrationForm,
-  userLoggedIn: state.userReducer.userLoggedIn
+  userLoggedIn: state.userReducer.userLoggedIn,
+  currentUser: state.auth.currentUser
 });
 
 export default connect(mapStateToProps)(Modal);

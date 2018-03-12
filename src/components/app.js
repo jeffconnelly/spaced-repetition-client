@@ -42,17 +42,27 @@ export class App extends React.Component {
     }
 
     render() {
+
+      if (this.props.loggedIn !== true) {
         return (
-            <div className="app">
-                <HeaderBar />
-                <Modal />
-                <Header />
-                <Vector />
-                <Route exact path="/" component={LandingPage} />
-                <Route exact path="/dashboard" component={Dashboard} />
-            </div>
-        );
+          <div className="app">
+              <HeaderBar />
+              <Modal />
+              <Header />
+              <Route exact path="/" component={LandingPage} />
+          </div>
+      );
+      }
+      else {
+        return (
+          <div className="app">
+            <HeaderBar />
+            <Dashboard />
+            <Route exact path="/dashboard" component={Dashboard} />
+          </div>
+      );
     }
+  }
 }
 
 const mapStateToProps = state => ({
@@ -67,3 +77,9 @@ export default withRouter(connect(mapStateToProps)(App));
 //Route to registration page - taken off for now in favor of modal render of registration form
 // <Route exact path="/register" component={RegistrationPage} />
 
+
+
+// <Vector />
+
+
+// <Route exact path="/dashboard" component={Dashboard} />
