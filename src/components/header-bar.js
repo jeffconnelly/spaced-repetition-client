@@ -37,7 +37,7 @@ export class HeaderBar extends React.Component {
           return (
             <div className="header-bar">
               <ul className="nav-bar-ul">
-                {loginFormNav}
+               {loginFormNav}
                 {regFormNav}
                 {logOutButton}
                 </ul>
@@ -53,3 +53,6 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(HeaderBar);
+
+
+              // <li className="app-name-li">Luz</li>
