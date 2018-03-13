@@ -12,9 +12,11 @@
 
 .about-text {
   /* max-width: 70%; */
+  color: rgb(68, 68, 68);
 }
 
 .about-header {
   font-size: 2.5em;
-  letter-spacing: 2px;
+  letter-spacing: 2px;  
+  color: rgb(68, 68, 68);
 }

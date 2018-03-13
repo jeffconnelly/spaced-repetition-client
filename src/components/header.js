@@ -10,7 +10,7 @@ export function Header(props) {
     <div className="header">
       <div className="header-wrapper">
       <h1 className="header-text">Luz</h1>
-      <h2 className="header-sub">The Simple Spanish Learning App</h2>
+      <h2 className="header-sub">The Smarter Spanish Learning App</h2>
       <button className="btn-gradient red" onClick={() => props.dispatch(showRegistrationForm())}>Get Started</button>
     </div>
     </div>

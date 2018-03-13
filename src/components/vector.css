@@ -16,6 +16,7 @@
   text-align: center;
   align-content: center;
   flex-direction: column;
+  color: #333;
 }
 
 li {
