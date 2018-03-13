@@ -5,7 +5,7 @@
   border: 1px solid white;
   border-radius: 2px;
   width: 350px;
-  height: 450px;
+  height: 500px;
   padding: 10px;
   background:#f3f3f3;
   font-size: 20px;
@@ -67,3 +67,31 @@ input [type="text"] {
 input, .demo-text {
   font-size: 20px;
 }
+
+.btn-form {
+  margin-top: 15px;
+  font-size: 1.2em;
+	text-decoration: none;
+	color: white;
+	padding: 10px 30px;
+	display: inline-block;
+	position: relative;
+	border: 1px solid rgba(0,0,0,0.21);
+	border-bottom: 4px solid rgba(0,0,0,0.21);
+	border-radius: 4px;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.15);
+}
+
+/* button {
+  margin-top: 20px;
+  font-size: 1.2em;
+	text-decoration: none;
+	color: white;
+	padding: 10px 30px;
+	display: inline-block;
+	position: relative;
+	border: 1px solid rgba(0,0,0,0.21);
+	border-bottom: 4px solid rgba(0,0,0,0.21);
+	border-radius: 4px;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.15);
+} */

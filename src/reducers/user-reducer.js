@@ -27,7 +27,6 @@ export function userReducer(state=initialState, action) {
       userLoggedIn: false
     }
     case SHOW_REGISTRATION_FORM:
-    console.log(action.type);
     return {
       ...state,
       showRegistrationForm: true,

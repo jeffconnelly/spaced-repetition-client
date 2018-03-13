@@ -10,7 +10,8 @@ const initialState = {
     authToken: null, // authToken !== null does not mean it has been validated
     currentUser: null,
     loading: false,
-    error: null
+    error: null,
+    userId: null,
 };
 
 export function authReducer(state = initialState, action) {
@@ -32,7 +33,8 @@ export function authReducer(state = initialState, action) {
       console.log(action.currentUser);
         return Object.assign({}, state, {
             loading: false,
-            currentUser: action.currentUser
+            currentUser: action.currentUser,
+            userId: action.currentUser.id
         });
     } else if (action.type === AUTH_ERROR) {
         return Object.assign({}, state, {

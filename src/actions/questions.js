@@ -3,7 +3,7 @@
 
 import {API_BASE_URL} from '../config';
 
-// console.log(API_BASE_URL);
+console.log(API_BASE_URL);
 
 //This action fetches a question from the server, and will update the local state with that array of questions.
 export const FETCH_QUESTION_SUCCESS = 'FETCH_QUESTION_SUCCESS';
@@ -13,7 +13,7 @@ export const fetchQuestionSuccess = question => ({
 });
 
 export const fetchQuestion = () => dispatch => {
-  fetch(`${API_BASE_URL}/questions`)
+  fetch(`${API_BASE_URL}/questions/`)
     .then(res => {
       if (!res.ok) {
       return Promise.reject(res.statusText);
@@ -21,8 +21,8 @@ export const fetchQuestion = () => dispatch => {
     return res.json();
     })
     .then(question => {
-      console.log(question);
-      dispatch(fetchQuestionSuccess(question))
+      console.log(question[0]);
+      dispatch(fetchQuestionSuccess(question[0]))
     })
 };
 
@@ -37,9 +37,46 @@ export const checkAnswer = input => dispatch => {
   dispatch(CheckQuestionsSuccess(input))
 };
 
+//This action toggles the button to render from Check Answer to Next Question back and forth
+export const TOGGLE_BTN_SUCCESS = 'TOGGLE_BTN_SUCCESS';
+export const ToggleBtnSuccess = () => ({
+    type: TOGGLE_BTN_SUCCESS,
+});
+
+export const buttonToggle = () => dispatch => {
+  dispatch(ToggleBtnSuccess());
+}
+
+export const TOGGLE_BTN_SUCCESS_BACK = 'TOGGLE_BTN_SUCCESS_BACK';
+export const ToggleBtnSuccessBack = () => ({
+    type: TOGGLE_BTN_SUCCESS_BACK,
+});
+
+export const buttonToggleBack = () => dispatch => {
+  dispatch(ToggleBtnSuccessBack());
+}
 
 //This action will make a POST with whether the question was correct or incorrect
-
+export const userAnswer = (answer) => dispatch => 
+{
+  fetch(`${API_BASE_URL}/deck/`, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+     },
+     body: JSON.stringify({
+      isCorrect: answer
+    }),
+  })
+  .then(res => {
+    console.log(res)
+    if (!res.ok) {
+      return Promise.reject(res.statusText);
+    }
+    return res.json();
+  })
+}
 
 // State with question and answer
 // Is correct variable in state as well
@@ -48,13 +85,11 @@ export const checkAnswer = input => dispatch => {
 // 
 //Send is correct boolean to backend
 
-//In Post -> 
+//Send true or false -> to POST endpoint?
 
 //insertLast()
 
 // insertLast(question)
-
-// ll.head
 
 // if(isCorrect) mValue = * 2
 
@@ -62,6 +97,4 @@ export const checkAnswer = input => dispatch => {
 
 // insertAt(mValue, question)
 
-//Send true or false -> to POST endpoint?
-
-//Then click another button to grab next question at /questions/next -> retrieve new this.head
+//Then click another button to grab next question at //questions/next -> retrieve new 
