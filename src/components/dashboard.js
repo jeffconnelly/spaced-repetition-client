@@ -5,6 +5,7 @@ import {fetchProtectedData} from '../actions/protected-data';
 import {hideLoginForm} from '../actions/useractions';
 import {hideRegistrationForm} from '../actions/useractions';
 import {fetchQuestion} from '../actions/questions';
+import {fetchQuestion2} from '../actions/questions';
 import {buttonToggle} from '../actions/questions';
 import {buttonToggleBack} from '../actions/questions';
 import {checkAnswer} from '../actions/questions';
@@ -17,11 +18,19 @@ export class Dashboard extends React.Component {
         this.props.dispatch(hideLoginForm());
         this.props.dispatch(hideRegistrationForm());
         this.props.dispatch(fetchQuestion());
+        this.props.dispatch(fetchQuestion2(this.props.userId));
     }
 
     render() {
+      // console.log('is correct render', this.props.isCorrect);
+      // console.log('is correct feedback', this.props.answerFeedback);
+      // console.log('is correct feedback', this.props.answerFeedback);
+      console.log('user id is: ', this.props.userId);
       let cardCall = this.props.currentQuestion;
-      if (!this.props.buttonToggle) {
+      let questionFeedback = this.props.answerFeedback;
+      // console.log(questionFeedback);
+      
+        if (!this.props.buttonToggle) {
         return (
           <section className="dashboard-wrapper">
           <h1>Spaced Repetition Page</h1>
@@ -34,11 +43,11 @@ export class Dashboard extends React.Component {
               <form className="search-form" onSubmit = { (e) => {
                 e.preventDefault();
                 console.log(this.input.value);
-                // this.props.dispatch(checkAnswer(this.input.value))
+                this.props.dispatch(checkAnswer(this.input.value));
               }}>
               <label htmlFor="search">Answer</label>
               <input className="search-input" type="search" ref={input => (this.input = input)} />
-              <button onClick={() => this.props.dispatch(buttonToggle())}
+              <button type="button" onClick={() => this.props.dispatch(buttonToggle())}
               className="search-button">Check Answer</button>
               </form>
               </div>
@@ -54,16 +63,14 @@ export class Dashboard extends React.Component {
               </div>
               <div className="dashboard-name">Name: {this.props.name}</div>
               <div className="flashcard-wrapper">
-              <h1>Next Question Is:</h1>
-              {cardCall}
+              <h1>{questionFeedback}</h1>
               <form className="search-form" onSubmit = { (e) => {
                 e.preventDefault();
                 console.log(this.input.value);
                 // this.props.dispatch(fetchQuestion(this.input.value))
               }}>
-              <label htmlFor="search">Answer</label>
-              <input className="search-input" type="search" ref={input => (this.input = input)} />
-              <button onClick={() => this.props.dispatch(buttonToggleBack())} className="search-button">Next Question</button>
+              
+              <button type="button" onClick={() => this.props.dispatch(buttonToggleBack())} className="search-button">Next Question</button>
               </form>
               </div>
           </section>
@@ -78,10 +85,13 @@ const mapStateToProps = state => {
     // const {question} = state.questionReducer;
     return {
         username: state.auth.currentUser.username,
+        userId: state.auth.currentUser.id,
         name: `${currentUser.firstName} ${currentUser.lastName}`,
         protectedData: state.protectedData.data,
         buttonToggle: state.questionReducer.btnToggle,
-        currentQuestion: state.questionReducer.currentQuestion
+        currentQuestion: state.questionReducer.currentQuestion,
+        isCorrect: state.questionReducer.isCorrect,
+        answerFeedback: state.questionReducer.answerFeedback
     };
 };
 
@@ -89,15 +99,13 @@ export default requiresLogin()(connect(mapStateToProps)(Dashboard));
 // buttonToggle: state.question.btnToggle
 
 
-// const mapStateToProps = state => ({
-//   ShowRegistrationForm: state.userReducer.showRegistrationForm,
-// });
-
 // currentQuestion: state.questionreducer.currentQuestion;
 // buttonToggle: state.questionreducer.btnToggle;
 
   // if (this.state.btnToggle === true) {
-        // btn = <button onClick={() => this.props.dispatch(buttonToggle())} className="search-button">Next Question</button>
-      // }
-      // btn = <button onClick={() => this.props.dispatch(buttonToggle())}
-      //   className="search-button">Check Answer</button>
+  // btn = <button onClick={() => this.props.dispatch(buttonToggle())} className="search-button">Next Question</button>
+  // }
+  // btn = <button onClick={() => this.props.dispatch(buttonToggle())}
+  //   className="search-button">Check Answer</button>
+
+

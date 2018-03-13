@@ -3,7 +3,7 @@
 
 import {API_BASE_URL} from '../config';
 
-console.log(API_BASE_URL);
+// console.log(API_BASE_URL);
 
 //This action fetches a question from the server, and will update the local state with that array of questions.
 export const FETCH_QUESTION_SUCCESS = 'FETCH_QUESTION_SUCCESS';
@@ -21,8 +21,22 @@ export const fetchQuestion = () => dispatch => {
     return res.json();
     })
     .then(question => {
-      console.log(question[0]);
       dispatch(fetchQuestionSuccess(question[0]))
+    })
+};
+
+export const fetchQuestion2 = id => dispatch => {
+  console.log(id);
+  fetch(`${API_BASE_URL}/users/${id}`)
+    .then(res => {
+      if (!res.ok) {
+      return Promise.reject(res.statusText);
+    }
+    return res.json();
+    })
+    .then(question => {
+      console.log(question);
+      dispatch(fetchQuestionSuccess(question))
     })
 };
 
@@ -59,6 +73,7 @@ export const buttonToggleBack = () => dispatch => {
 //This action will make a POST with whether the question was correct or incorrect
 export const userAnswer = (answer) => dispatch => 
 {
+  console.log(answer);
   fetch(`${API_BASE_URL}/deck/`, {
     method: 'POST',
     headers: {

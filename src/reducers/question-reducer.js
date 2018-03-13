@@ -10,6 +10,7 @@ const initialState = {
   currentQuestion: null,
   currentAnswer: null,
   btnToggle: false,
+  answerFeedback: null
 };
 
 export function questionReducer(state=initialState, action) {
@@ -22,23 +23,27 @@ export function questionReducer(state=initialState, action) {
       currentAnswer: action.question.answer
     }
     case CHECK_QUESTION_SUCCESS:
+    // console.log('input is: ', action.input);
+    // console.log('correct answer is: ', state.currentAnswer)
     if (action.input === state.currentAnswer)
     return {
       ...state,
       isCorrect: true,
+      answerFeedback: 'Correct!'
     }
     else return {
       ...state,
       isCorrect: false,
+      answerFeedback: 'Incorrect!'
     }
     case TOGGLE_BTN_SUCCESS:
-    console.log(state.btnToggle);
+    // console.log(state.btnToggle);
     return {
       ...state,
       btnToggle: true,
     }
     case TOGGLE_BTN_SUCCESS_BACK:
-    console.log(state.btnToggle);
+    // console.log(state.btnToggle);
     return {
       ...state,
       btnToggle: false,
