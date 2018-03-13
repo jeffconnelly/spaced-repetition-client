@@ -4,6 +4,7 @@ import requiresLogin from './requires-login';
 import {fetchProtectedData} from '../actions/protected-data';
 import {hideLoginForm} from '../actions/useractions';
 import {hideRegistrationForm} from '../actions/useractions';
+import {fetchQuestions} from '../actions/questions';
 
 import './dashboard.css';
 
@@ -12,6 +13,7 @@ export class Dashboard extends React.Component {
         this.props.dispatch(fetchProtectedData());
         this.props.dispatch(hideLoginForm());
         this.props.dispatch(hideRegistrationForm());
+        this.props.dispatch(fetchQuestions());
     }
 
     render() {
@@ -28,10 +30,14 @@ export class Dashboard extends React.Component {
                 <div className="flashcard-wrapper">
                 <h1>Flashcard Box</h1>
                 {cardCall}
-                <form className="search-form">
+                <form className="search-form" onSubmit = { (e) => {
+                  e.preventDefault();
+                  console.log(this.input.value);
+                  // this.props.dispatch(fetchCard(this.input.value))
+                }}>
                 <label htmlFor="search">Search</label>
                 <input className="search-input" type="search" ref={input => (this.input = input)} />
-                <button className="search-button">Search</button>
+                <button className="search-button">Check Answer</button>
                 </form>
                 </div>
             </section>
@@ -50,10 +56,6 @@ const mapStateToProps = state => {
 
 export default requiresLogin()(connect(mapStateToProps)(Dashboard));
 
-// <form>
-// //                 {cardCall}
-// //                 <label htmlFor="search">Search</label>
-// //                 <input type="search" ref={input => (this.input = input)}>
-// //                 <button>Search</button>
-// //                 </input>
-// //                 </form>
+
+
+// <input className="search-input" type="search" ref={input => (this.input = input)} />

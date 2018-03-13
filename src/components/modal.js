@@ -11,10 +11,7 @@ export class Modal extends React.Component {
       display: 'show'
     }
 
-    console.log(this.props.ShowRegistrationForm);
     // console.log(this.props.userLoggedIn);
-    console.log(this.props.currentUser);
-
 
     if (this.props.ShowLoginForm === true && this.props.currentUser === null) {
       return (

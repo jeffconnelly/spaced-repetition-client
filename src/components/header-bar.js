@@ -14,7 +14,7 @@ export class HeaderBar extends React.Component {
     }
 
     render() {
-      console.log(this.props.showRegistrationForm);
+      // console.log(this.props.showRegistrationForm);
         // Only render the log out button if we are logged in
         let logOutButton;
         let loginFormNav;
