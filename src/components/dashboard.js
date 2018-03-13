@@ -4,7 +4,7 @@ import requiresLogin from './requires-login';
 import {fetchProtectedData} from '../actions/protected-data';
 import {hideLoginForm} from '../actions/useractions';
 import {hideRegistrationForm} from '../actions/useractions';
-import {fetchQuestions} from '../actions/questions';
+import {fetchQuestion} from '../actions/questions';
 
 import './dashboard.css';
 
@@ -13,7 +13,7 @@ export class Dashboard extends React.Component {
         this.props.dispatch(fetchProtectedData());
         this.props.dispatch(hideLoginForm());
         this.props.dispatch(hideRegistrationForm());
-        this.props.dispatch(fetchQuestions());
+        this.props.dispatch(fetchQuestion());
     }
 
     render() {
