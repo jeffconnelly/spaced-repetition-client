@@ -19,7 +19,7 @@
   backface-visibility: hidden;
   color: #fff;
   letter-spacing: 6px;
-  font-family: 'Aladin';
+  font-family: 'Roboto';
   font-weight: 300;
   animation-name: moveInLeft;
   animation-duration: 1s;
@@ -29,9 +29,9 @@
 
 .header-sub {
   margin-top: 0px;
-  font-size: 1.8em;
+  font-size: 1.4em;
   color: #fff;
-  font-family: 'Aladin';
+  font-family: 'Roboto';
   letter-spacing: 3px;
   animation: moveInRight 1s ease-out;
 }
