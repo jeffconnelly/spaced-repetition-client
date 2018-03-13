@@ -5,6 +5,8 @@ import {fetchProtectedData} from '../actions/protected-data';
 import {hideLoginForm} from '../actions/useractions';
 import {hideRegistrationForm} from '../actions/useractions';
 
+import './dashboard.css';
+
 export class Dashboard extends React.Component {
     componentDidMount() {
         this.props.dispatch(fetchProtectedData());
@@ -14,13 +16,16 @@ export class Dashboard extends React.Component {
 
     render() {
         return (
-            <div className="dashboard">
+            <section className="dashboard-wrapper">
             <h1>Spaced Repetition Page</h1>
                 <div className="dashboard-username">
                     Username: {this.props.username}
                 </div>
                 <div className="dashboard-name">Name: {this.props.name}</div>
-            </div>
+                <div className="flashcard-wrapper">
+                <h1>Flashcard Box</h1>
+                </div>
+            </section>
         );
     }
 }

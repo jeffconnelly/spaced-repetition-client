@@ -1,0 +1,11 @@
+.about-wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 50px;
+  border-bottom: 1px solid black;
+  height: 200px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+

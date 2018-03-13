@@ -1,14 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Route, withRouter, Link} from 'react-router-dom';
-
+import {Route, withRouter} from 'react-router-dom';
 import HeaderBar from './header-bar';
 import LandingPage from './landing-page';
-import Header from './header';
 import Dashboard from './dashboard';
-import Modal from './modal.js';
-import Vector from './vector.js';
-import RegistrationPage from './registration-page';
 import {refreshAuthToken} from '../actions/auth';
 
 export class App extends React.Component {

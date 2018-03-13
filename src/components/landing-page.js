@@ -1,10 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Link, Redirect} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 import Modal from './modal.js';
 import Header from './header';
 import Vector from './vector.js';
-import LoginForm from './login-form';
+import About from './about';
 
 export function LandingPage(props) {
     // If we are logged in redirect straight to the user's dashboard
@@ -14,8 +14,10 @@ export function LandingPage(props) {
 
     return (
         <div className="home">
-        <Modal />
-        <Header />
+          <Modal />
+          <Header />
+          <Vector />
+          <About />
         </div>
     );
 }
@@ -25,6 +27,4 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(LandingPage);
-// <LoginForm />
 
-// <Link to="/register">Register</Link>

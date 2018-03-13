@@ -1,0 +1,23 @@
+
+.vector-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  height: 300px;
+  border-bottom: 1px solid black;
+}
+
+.blurb-wrapper {
+  display: flex;
+  width: 200px;
+  height: 150px;
+  margin-top: 60px;
+  border: 1px solid black;
+  justify-content:center;
+  text-align: center;
+  align-content: center;
+  flex-direction: column;
+}
+
+li {
+  list-style-type: none;
+}

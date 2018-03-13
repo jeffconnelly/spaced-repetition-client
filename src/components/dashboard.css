@@ -1,0 +1,22 @@
+
+.dashboard-wrapper {
+  text-align: center;
+}
+
+
+.flashcard-wrapper {
+  height: 400px;
+  border: 1px solid black;
+  border-radius: 2px;
+  width: 500px;
+  position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+h1 {
+  margin-top: 10px;
+}
