@@ -5,15 +5,120 @@
   height: 400px;
   background-size: contain;
   background-size: cover;
-	background-position: center;
+  background-position: center;
+  background-image: linear-gradient(
+  to right bottom, 
+  rgba(255, 178, 56, 0.8), 
+  rgba(245, 85, 54, 0.8)),
+  url('https://images.unsplash.com/photo-1457079585111-4f7fc5d8a98b?ixlib=rb-0.3.5&s=25925cac06d093a76b4697d4abc4e3df&auto=format&fit=crop&w=1586&q=80');
 }
 
 .header-text {
-  margin-top: 150px;    
-  font-size: 4.5em;
+  margin-top: 95px;    
+  font-size: 6.5em;
   backface-visibility: hidden;
-  color: #444b4b;
-  letter-spacing: 4.5px;
-  font-family: 'Montserrat';
+  color: #fff;
+  letter-spacing: 6px;
+  font-family: 'Aladin';
   font-weight: 300;
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
 }
+
+
+.header-sub {
+  margin-top: 0px;
+  font-size: 1.8em;
+  color: #fff;
+  font-family: 'Aladin';
+  letter-spacing: 3px;
+  animation: moveInRight 1s ease-out;
+}
+
+@keyframes moveInLeft {
+	0% {
+		opacity: 0;
+		 transform: translateX(-100px);
+	}
+
+	80% {
+		 transform: translateX(10px);
+	}
+
+	100% {
+		opacity: 1;
+		 transform: translate(0);
+	}
+}
+
+@keyframes moveInRight {
+	0% {
+		opacity: 0;
+		transform: translateX(100px);
+	}
+
+	80% {
+		transform: translateX(-10px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translate(0);
+	}
+}
+
+@keyframes moveInBottom {
+	0% {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translate(0);
+	}
+}
+
+
+.red {background: #fa5a5a;}
+
+
+.btn-gradient {
+  font-size: 1.2em;
+	text-decoration: none;
+	color: white;
+	padding: 10px 30px;
+	display: inline-block;
+	position: relative;
+	border: 1px solid rgba(0,0,0,0.21);
+	border-bottom: 4px solid rgba(0,0,0,0.21);
+	border-radius: 4px;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.15);
+}
+
+.btn-gradient .red{  */
+	background: rgba(250,90,90,1);
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(250,90,90,1)), to(rgba(232,81,81,1)));
+	background: -webkit-linear-gradient(rgba(250,90,90,1) 0%, rgba(232,81,81,1) 100%);
+	background: -moz-linear-gradient(rgba(250,90,90,1) 0%, rgba(232,81,81,1) 100%);
+	background: -o-linear-gradient(rgba(250,90,90,1) 0%, rgba(232,81,81,1) 100%);
+	background: linear-gradient(rgba(250,90,90,1) 0%, rgba(232,81,81,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fa5a5a', endColorstr='#e85151', GradientType=0 );
+}
+
+.btn-gradient.red:active 	  {background: #E35252;}
+
+.btn:active {
+	top: 4px;	
+}
+
+.btn-gradient {
+	margin: 5px;
+}
+
+a[class*="btn"] {text-decoration: none;}
+input[class*="btn"], 
+button[class*="btn"] {border: 0;}
+
+button:focus {outline:0;}

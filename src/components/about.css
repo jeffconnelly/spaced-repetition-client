@@ -2,10 +2,19 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  margin-top: 50px;
+  justify-content: center;
+  margin-top: 30px;
   border-bottom: 1px solid black;
   height: 200px;
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-left: 18%;
+  margin-right: 18%;
 }
 
+.about-text {
+  /* max-width: 70%; */
+}
+
+.about-header {
+  font-size: 2.5em;
+  letter-spacing: 2px;
+}
