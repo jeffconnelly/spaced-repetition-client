@@ -15,6 +15,9 @@ export class Dashboard extends React.Component {
     }
 
     render() {
+
+      let cardCall = 'Card will render in this variable';
+
         return (
             <section className="dashboard-wrapper">
             <h1>Spaced Repetition Page</h1>
@@ -24,6 +27,12 @@ export class Dashboard extends React.Component {
                 <div className="dashboard-name">Name: {this.props.name}</div>
                 <div className="flashcard-wrapper">
                 <h1>Flashcard Box</h1>
+                {cardCall}
+                <form className="search-form">
+                <label htmlFor="search">Search</label>
+                <input className="search-input" type="search" ref={input => (this.input = input)} />
+                <button className="search-button">Search</button>
+                </form>
                 </div>
             </section>
         );
@@ -40,3 +49,11 @@ const mapStateToProps = state => {
 };
 
 export default requiresLogin()(connect(mapStateToProps)(Dashboard));
+
+// <form>
+// //                 {cardCall}
+// //                 <label htmlFor="search">Search</label>
+// //                 <input type="search" ref={input => (this.input = input)}>
+// //                 <button>Search</button>
+// //                 </input>
+// //                 </form>
