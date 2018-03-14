@@ -14,7 +14,9 @@ const initialState = {
   currentQuestion: null,
   currentAnswer: null,
   btnToggle: false,
-  answerFeedback: null
+  answerFeedback: null,
+  questionCorrect: 0,
+  questionTotal: 10
 };
 
 export function questionReducer(state=initialState, action) {
@@ -31,13 +33,16 @@ export function questionReducer(state=initialState, action) {
     case CHECK_QUESTION_SUCCESS:
     // console.log('input is: ', action.input);
     // console.log('correct answer is: ', state.currentAnswer)
-    console.log('action: ', action.input);
-    console.log('currentAnswer', state.currentAnswer);
-    if (action.input === state.currentAnswer)
-    return {
-      ...state,
-      isCorrect: 'true',
-      answerFeedback: 'Correct!'
+    // console.log('action: ', action.input);
+    // console.log('currentAnswer', state.currentAnswer);
+    console.log(state.questionCorrect);
+    if (action.input === state.currentAnswer) {
+      state.questionCorrect++;
+      return {
+        ...state,
+        isCorrect: 'true',
+        answerFeedback: 'Correct!',
+      }
     }
     else return {
       ...state,
@@ -51,7 +56,6 @@ export function questionReducer(state=initialState, action) {
       btnToggle: true,
       currentQuestion: null,
       currentAnswer: null,
-      isCorrect: 'false',
     }
     case TOGGLE_BTN_SUCCESS_BACK:
     // console.log(state.btnToggle);
@@ -60,15 +64,14 @@ export function questionReducer(state=initialState, action) {
       btnToggle: false,
       currentQuestion: null,
       currentAnswer: null,
-      isCorrect: 'false',
     }
     case CLEAR_AUTH:
-    // console.log(state.btnToggle);
     return {
       ...state,
       currentQuestion: null,
       currentAnswer: null,
       isCorrect: null,
+      questionCorrect: 0,
     }
     default: return state;
   }

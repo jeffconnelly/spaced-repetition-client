@@ -11,22 +11,21 @@ export const fetchQuestionSuccess = question => ({
     question
 });
 
-export const fetchQuestion = () => dispatch => {
-  fetch(`${API_BASE_URL}/questions/`)
-    .then(res => {
-      if (!res.ok) {
-      return Promise.reject(res.statusText);
-    }
-    return res.json();
-    })
-    .then(question => {
-      console.log(question);
-      dispatch(fetchQuestionSuccess(question[0]))
-    })
-};
+// export const fetchQuestion = () => dispatch => {
+//   fetch(`${API_BASE_URL}/questions/`)
+//     .then(res => {
+//       if (!res.ok) {
+//       return Promise.reject(res.statusText);
+//     }
+//     return res.json();
+//     })
+//     .then(question => {
+//       console.log(question);
+//       dispatch(fetchQuestionSuccess(question[0]))
+//     })
+// };
 
 export const fetchQuestion2 = id => dispatch => {
-  console.log(id);
   fetch(`${API_BASE_URL}/users/${id}/current`)
     .then(res => {
       if (!res.ok) {
@@ -42,24 +41,20 @@ export const fetchQuestion2 = id => dispatch => {
 
 //This action checks if the user input matches the answer provided
 export const CHECK_QUESTION_SUCCESS = 'CHECK_QUESTION_SUCCESS';
-export const CheckQuestionsSuccess = input => ({
+export const checkAnswer = input => ({
     type: CHECK_QUESTION_SUCCESS,
     input
 });
 
-export const checkAnswer = input => dispatch => {
-  dispatch(CheckQuestionsSuccess(input))
-};
-
 //This action toggles the button to render from Check Answer to Next Question back and forth
 export const TOGGLE_BTN_SUCCESS = 'TOGGLE_BTN_SUCCESS';
-export const ToggleBtnSuccess = () => ({
+export const buttonToggle = () => ({
     type: TOGGLE_BTN_SUCCESS,
 });
 
-export const buttonToggle = () => dispatch => {
-  dispatch(ToggleBtnSuccess());
-}
+// export const buttonToggle = () => dispatch => {
+//   dispatch(ToggleBtnSuccess());
+// }
 
 export const TOGGLE_BTN_SUCCESS_BACK = 'TOGGLE_BTN_SUCCESS_BACK';
 export const ToggleBtnSuccessBack = () => ({
@@ -68,16 +63,13 @@ export const ToggleBtnSuccessBack = () => ({
 
 export const buttonToggleBack = answer => dispatch => {
   dispatch(ToggleBtnSuccessBack());
-  // console.log(answer);
   dispatch(userAnswer(answer)); 
 }
 
 //This action will make a POST with whether the question was correct or incorrect
 export const userAnswer = (answer) => dispatch => 
 {
-  // console.log(answer);
-  //This is a mockup of the new GET dispatch we will make to get a new word in this action, 
-  //after our POST method returns a the new vocab word
+  console.log(answer);
   fetch(`${API_BASE_URL}/users/`, {
     method: 'POST',
     headers: {

@@ -26,19 +26,22 @@ export class Dashboard extends React.Component {
       // console.log('is correct feedback', this.props.answerFeedback);
       // console.log('is correct feedback', this.props.answerFeedback);
       // console.log('user id is: ', this.props.userId);
+      // console.log(this.props.questionCorrect);
       let cardCall = this.props.currentQuestion;
       let questionFeedback = this.props.answerFeedback;
-      // console.log(questionFeedback);
-      
+      let correct = this.props.questionCorrect;
         if (!this.props.buttonToggle) {
         return (
           <section className="dashboard-wrapper">
               <div className="flashcard-wrapper">
+              <div className="counter-wrapper">
+              <li>Correct: {correct} / 10 </li>
+              </div>
               <h1 className="card-header">{cardCall}</h1>
               <form className="search-form" onSubmit = { (e) => {
                 e.preventDefault();
                 this.props.dispatch(checkAnswer(this.input.value));
-                this.props.dispatch(buttonToggle());
+                this.props.dispatch(buttonToggle(this.props.isCorrect));
               }}>
               <label className="answer-label"htmlFor="search">Translation:</label>
               <input className="search-input" type="search" ref={input => (this.input = input)} />
@@ -46,21 +49,21 @@ export class Dashboard extends React.Component {
               </form>
               </div>
           </section>
-      );
-      }
-      else if (this.props.buttonToggle) {
-        return (
-          <section className="dashboard-wrapper">
-              <div className="flashcard-wrapper">
-              <h1 className="card-header">{questionFeedback}</h1>
-              <form className="search-form next-form" onSubmit = { (e) => {
-                e.preventDefault();
-                console.log(this.input.value);
-              }}>
-              <button  type="button" onClick={() => this.props.dispatch(buttonToggleBack(this.props.isCorrect))} className="search-button btn-gradient orange next">Next Question</button>
-              </form>
-              </div>
-          </section>
+          );
+        }
+        else if (this.props.buttonToggle) {
+          return (
+            <section className="dashboard-wrapper">
+                <div className="flashcard-wrapper">
+                <h1 className="card-header">{questionFeedback}</h1>
+                <form className="search-form next-form" onSubmit = { (e) => {
+                  e.preventDefault();
+                  console.log(this.input.value);
+                }}>
+                <button  type="button" onClick={() => this.props.dispatch(buttonToggleBack(this.props.isCorrect))} className="search-button btn-gradient orange next">Next Question</button>
+                </form>
+                </div>
+            </section>
       );
       }  
     }
@@ -68,7 +71,6 @@ export class Dashboard extends React.Component {
 
 const mapStateToProps = state => {
     const {currentUser} = state.auth;
-    // const {question} = state.questionReducer;
     return {
         username: state.auth.currentUser.username,
         userId: state.auth.currentUser.id,
@@ -77,7 +79,8 @@ const mapStateToProps = state => {
         buttonToggle: state.questionReducer.btnToggle,
         currentQuestion: state.questionReducer.currentQuestion,
         isCorrect: state.questionReducer.isCorrect,
-        answerFeedback: state.questionReducer.answerFeedback
+        answerFeedback: state.questionReducer.answerFeedback,
+        questionCorrect: state.questionReducer.questionCorrect
     };
 };
 

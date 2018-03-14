@@ -48,7 +48,7 @@ h1 {
 }
 
 .card-header {
-  margin-top: 40px;
+  margin-top: 15px;
   font-size: 3.5em;
   letter-spacing: 2px;
   font-weight: 300;
@@ -66,4 +66,24 @@ h1 {
 
 .next {
   margin-top: 40px;
+}
+
+.counter-wrapper {
+  margin-left: 65%;
+  margin-top: 10px;
+}
+
+
+
+@media (max-width: 760px) {
+  .flashcard-wrapper {
+    width:350px;
+  }
+
+  .counter-wrapper {
+    margin-left: 60%;
+    margin-top: 10px;
+  }
+
+
 }
