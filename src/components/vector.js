@@ -12,7 +12,7 @@ export default function Vector(props) {
       <li>Learning with spaced repetition helps you retain new words better, for longer</li>
     </div>
     <div className="blurb-wrapper blurb-three">
-      <li>Learning with spaced repetition helps you retain new words better, for longer</li>
+      <li>Clicked 'Get Started' to start working with Luz today!</li>
     </div>
     </section>
   )

@@ -74,7 +74,6 @@ h1 {
 }
 
 
-
 @media (max-width: 760px) {
   .flashcard-wrapper {
     width:350px;
@@ -84,6 +83,4 @@ h1 {
     margin-left: 60%;
     margin-top: 10px;
   }
-
-
 }

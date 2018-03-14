@@ -2,7 +2,7 @@
 .vector-wrapper {
   display: flex;
   justify-content: space-evenly;
-  height: 300px;
+  min-height: 300px;
   border-bottom: 2px solid rgb(164, 164, 164);
 }
 
@@ -14,7 +14,6 @@
   border-radius: 10px;
   background-color: rgb(223, 220, 220);
   /* background: linear-gradient(to right, #FFB238, #F19143); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
   justify-content:center;
   text-align: center;
   align-content: center;
@@ -43,3 +42,15 @@ li {
   border-left: 1px solid black;
   padding-left: 10px;
 } */ 
+
+
+@media (max-width: 640px) {
+
+
+  .vector-wrapper {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+}
