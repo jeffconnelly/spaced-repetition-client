@@ -54,13 +54,12 @@ export class Dashboard extends React.Component {
           <section className="dashboard-wrapper">
               <div className="flashcard-wrapper">
               <h1 className="card-header">{questionFeedback}</h1>
-              <form className="search-form" onSubmit = { (e) => {
+              <form className="search-form next-form" onSubmit = { (e) => {
                 e.preventDefault();
                 console.log(this.input.value);
                 // this.props.dispatch(fetchQuestion(this.input.value))
               }}>
-
-              <button  type="button" onClick={() => this.props.dispatch(buttonToggleBack())} className="search-button btn-gradient orange">Next Question</button>
+              <button  type="button" onClick={() => this.props.dispatch(buttonToggleBack(this.props.isCorrect))} className="search-button btn-gradient orange next">Next Question</button>
               </form>
               </div>
           </section>

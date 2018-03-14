@@ -65,17 +65,17 @@ export const ToggleBtnSuccessBack = () => ({
     type: TOGGLE_BTN_SUCCESS_BACK,
 });
 
-export const buttonToggleBack = () => dispatch => {
+export const buttonToggleBack = answer => dispatch => {
   dispatch(ToggleBtnSuccessBack());
-  // dispatch(userAnswer()); 
+  console.log(answer);
+  dispatch(userAnswer(answer)); 
 }
 
 //This action will make a POST with whether the question was correct or incorrect
 export const userAnswer = (answer) => dispatch => 
-
 {
   console.log(answer);
-  fetch(`${API_BASE_URL}/deck/`, {
+  fetch(`${API_BASE_URL}/questions/`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
