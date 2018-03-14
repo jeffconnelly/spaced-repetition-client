@@ -27,7 +27,7 @@ export const fetchQuestion = () => dispatch => {
 
 export const fetchQuestion2 = id => dispatch => {
   console.log(id);
-  fetch(`${API_BASE_URL}/users/${id}`)
+  fetch(`${API_BASE_URL}/users/${id}/current`)
     .then(res => {
       if (!res.ok) {
       return Promise.reject(res.statusText);
@@ -36,7 +36,7 @@ export const fetchQuestion2 = id => dispatch => {
     })
     .then(question => {
       console.log(question);
-      dispatch(fetchQuestionSuccess(question))
+      dispatch(fetchQuestionSuccess(question.value))
     })
 };
 
@@ -75,28 +75,27 @@ export const buttonToggleBack = answer => dispatch => {
 //This action will make a POST with whether the question was correct or incorrect
 export const userAnswer = (answer) => dispatch => 
 {
+  console.log(answer);
   //This is a mockup of the new GET dispatch we will make to get a new word in this action, 
   //after our POST method returns a the new vocab word
-
-  
-  // fetch(`${API_BASE_URL}/questions/`, {
-  //   method: 'POST',
-  //   headers: {
-  //     Accept: 'application/json',
-  //     'Content-Type': 'application/json',
-  //    },
-  //    body: JSON.stringify({
-  //     isCorrect: answer
-  //   }),
-  // })
-  // .then(res => {
-  // dispatch(fetchQuestionSuccess({_id: "5aa81505734d1d6b71206501", question: "Hola", answer: "hello"}));
-  //   console.log(res)
-  //   if (!res.ok) {
-  //     return Promise.reject(res.statusText);
-  //   }
-  //   return res.json();
-  // })
+  fetch(`${API_BASE_URL}/users/`, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+     },
+     body: JSON.stringify({
+      isCorrect: answer
+    }),
+  })
+  .then(res => {
+  dispatch(fetchQuestionSuccess({_id: "5aa81505734d1d6b71206501", question: "Hola", answer: "hello"}));
+    console.log(res)
+    if (!res.ok) {
+      return Promise.reject(res.statusText);
+    }
+    return res.json();
+  })
 }
 
 //Send true or false -> to POST endpoint?

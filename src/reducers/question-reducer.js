@@ -30,12 +30,12 @@ export function questionReducer(state=initialState, action) {
     if (action.input === state.currentAnswer)
     return {
       ...state,
-      isCorrect: true,
+      isCorrect: 'true',
       answerFeedback: 'Correct!'
     }
     else return {
       ...state,
-      isCorrect: false,
+      isCorrect: 'false',
       answerFeedback: 'Incorrect!'
     }
     case TOGGLE_BTN_SUCCESS:
