@@ -17,7 +17,7 @@ export class Dashboard extends React.Component {
         this.props.dispatch(fetchProtectedData());
         this.props.dispatch(hideLoginForm());
         this.props.dispatch(hideRegistrationForm());
-        this.props.dispatch(fetchQuestion());
+        // this.props.dispatch(fetchQuestion());
         // this.props.dispatch(fetchQuestion2(this.props.userId));
     }
 
