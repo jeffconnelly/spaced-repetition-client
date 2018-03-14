@@ -84,22 +84,5 @@ const mapStateToProps = state => {
 };
 
 export default requiresLogin()(connect(mapStateToProps)(Dashboard));
-// buttonToggle: state.question.btnToggle
-
-
 // currentQuestion: state.questionreducer.currentQuestion;
 // buttonToggle: state.questionreducer.btnToggle;
-
-  // if (this.state.btnToggle === true) {
-  // btn = <button onClick={() => this.props.dispatch(buttonToggle())} className="search-button">Next Question</button>
-  // }
-  // btn = <button onClick={() => this.props.dispatch(buttonToggle())}
-  //   className="search-button">Check Answer</button>
-
-
-  // <h1>Spaced Repetition Page</h1>
-
-  // <div className="dashboard-username">
-  //                 Username: {this.props.username}
-  //             </div>
-  //             <div className="dashboard-name">Name: {this.props.name}</div>

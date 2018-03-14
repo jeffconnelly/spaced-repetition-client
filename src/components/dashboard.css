@@ -28,11 +28,11 @@
 }
 
 .search-form {
-margin-top: 40%;
+margin-top: 30%;
 }
 
 .next-form {
-  margin-top: 50%;
+  margin-top: 40%;
 }
 
 h1 {
@@ -48,12 +48,11 @@ h1 {
 }
 
 .card-header {
-  margin-top: 15px;
-  font-size: 3em;
+  margin-top: 40px;
+  font-size: 3.5em;
   letter-spacing: 2px;
   font-weight: 300;
 }
-
 
 .search-input {
   display: inline-block;

@@ -55,27 +55,3 @@ const mapStateToProps = state => ({
 
 // Deal with update blocking - https://reacttraining.com/react-router/web/guides/dealing-with-update-blocking
 export default withRouter(connect(mapStateToProps)(App));
-
-
-//Route to registration page - taken off for now in favor of modal render of registration form
-// <Route exact path="/register" component={RegistrationPage} />
-
-
-// if (this.props.loggedIn !== true) {
-//   return (
-//     <div className="app">
-//         <HeaderBar />
-//         <Modal />
-//         <Header />
-//         <Route exact path="/dashboard" component={Dashboard} />
-//         <Route exact path="/" component={LandingPage} />
-//     </div>
-// );
-// }
-// else {
-//   return (
-//     <div className="app">
-//       <HeaderBar />
-//       <h1><Link to="/dashboard"></Link></h1>
-//     </div>
-// );

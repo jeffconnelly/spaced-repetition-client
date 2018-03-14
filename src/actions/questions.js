@@ -75,7 +75,9 @@ export const buttonToggleBack = answer => dispatch => {
 //This action will make a POST with whether the question was correct or incorrect
 export const userAnswer = (answer) => dispatch => 
 {
-  //This is a mockup of the new dispatch we will make to get a new word in this action.
+  //This is a mockup of the new GET dispatch we will make to get a new word in this action, 
+  //after our POST method returns a the new vocab word
+  
   dispatch(fetchQuestionSuccess({_id: "5aa81505734d1d6b71206501", question: "Hola", answer: "hello"}));
   // fetch(`${API_BASE_URL}/questions/`, {
   //   method: 'POST',

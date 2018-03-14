@@ -53,6 +53,3 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(HeaderBar);
-
-
-              // <li className="app-name-li">Luz</li>
