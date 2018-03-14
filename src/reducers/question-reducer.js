@@ -16,7 +16,9 @@ const initialState = {
 export function questionReducer(state=initialState, action) {
   switch (action.type) {
     case FETCH_QUESTION_SUCCESS:
-    console.log(state.btnToggle);
+    // console.log(state.btnToggle);
+    console.log(action.question);
+    console.log(state.currentQuestion);
     return {
       ...state,
       currentQuestion: action.question.question,
