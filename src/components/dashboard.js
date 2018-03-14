@@ -4,7 +4,7 @@ import requiresLogin from './requires-login';
 import {fetchProtectedData} from '../actions/protected-data';
 import {hideLoginForm} from '../actions/useractions';
 import {hideRegistrationForm} from '../actions/useractions';
-import {fetchQuestion} from '../actions/questions';
+// import {fetchQuestion} from '../actions/questions';
 import {fetchQuestion2} from '../actions/questions';
 import {buttonToggle} from '../actions/questions';
 import {buttonToggleBack} from '../actions/questions';
@@ -25,7 +25,7 @@ export class Dashboard extends React.Component {
       // console.log('is correct render', this.props.isCorrect);
       // console.log('is correct feedback', this.props.answerFeedback);
       // console.log('is correct feedback', this.props.answerFeedback);
-      console.log('user id is: ', this.props.userId);
+      // console.log('user id is: ', this.props.userId);
       let cardCall = this.props.currentQuestion;
       let questionFeedback = this.props.answerFeedback;
       // console.log(questionFeedback);
@@ -37,13 +37,12 @@ export class Dashboard extends React.Component {
               <h1 className="card-header">{cardCall}</h1>
               <form className="search-form" onSubmit = { (e) => {
                 e.preventDefault();
-                // console.log(this.input.value);
                 this.props.dispatch(checkAnswer(this.input.value));
+                this.props.dispatch(buttonToggle());
               }}>
               <label className="answer-label"htmlFor="search">Translation:</label>
               <input className="search-input" type="search" ref={input => (this.input = input)} />
-              <button type="button" onClick={() => this.props.dispatch(buttonToggle())}
-              className="search-button btn-gradient orange">Check Answer</button>
+              <button type="submit" className="search-button btn-gradient orange">Check Answer</button>
               </form>
               </div>
           </section>
@@ -57,7 +56,6 @@ export class Dashboard extends React.Component {
               <form className="search-form next-form" onSubmit = { (e) => {
                 e.preventDefault();
                 console.log(this.input.value);
-                // this.props.dispatch(fetchQuestion(this.input.value))
               }}>
               <button  type="button" onClick={() => this.props.dispatch(buttonToggleBack(this.props.isCorrect))} className="search-button btn-gradient orange next">Next Question</button>
               </form>

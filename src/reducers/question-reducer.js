@@ -2,11 +2,15 @@ import {
   FETCH_QUESTION_SUCCESS,
   CHECK_QUESTION_SUCCESS,
   TOGGLE_BTN_SUCCESS,
-  TOGGLE_BTN_SUCCESS_BACK
+  TOGGLE_BTN_SUCCESS_BACK,
 } from '../actions/questions';
 
+import {
+  CLEAR_AUTH
+} from '../actions/auth';
+
 const initialState = {
-  isCorrect: null,
+  isCorrect: 'false',
   currentQuestion: null,
   currentAnswer: null,
   btnToggle: false,
@@ -17,8 +21,8 @@ export function questionReducer(state=initialState, action) {
   switch (action.type) {
     case FETCH_QUESTION_SUCCESS:
     // console.log(state.btnToggle);
-    console.log(action.question);
-    console.log(state.currentQuestion);
+    // console.log(action.question);
+    // console.log(state.currentQuestion);
     return {
       ...state,
       currentQuestion: action.question.question,
@@ -27,6 +31,8 @@ export function questionReducer(state=initialState, action) {
     case CHECK_QUESTION_SUCCESS:
     // console.log('input is: ', action.input);
     // console.log('correct answer is: ', state.currentAnswer)
+    console.log('action: ', action.input);
+    console.log('currentAnswer', state.currentAnswer);
     if (action.input === state.currentAnswer)
     return {
       ...state,
@@ -39,16 +45,30 @@ export function questionReducer(state=initialState, action) {
       answerFeedback: 'Incorrect!'
     }
     case TOGGLE_BTN_SUCCESS:
-    // console.log(state.btnToggle);
+    console.log('is Correct now: ');
     return {
       ...state,
       btnToggle: true,
+      currentQuestion: null,
+      currentAnswer: null,
+      isCorrect: 'false',
     }
     case TOGGLE_BTN_SUCCESS_BACK:
     // console.log(state.btnToggle);
     return {
       ...state,
       btnToggle: false,
+      currentQuestion: null,
+      currentAnswer: null,
+      isCorrect: 'false',
+    }
+    case CLEAR_AUTH:
+    // console.log(state.btnToggle);
+    return {
+      ...state,
+      currentQuestion: null,
+      currentAnswer: null,
+      isCorrect: null,
     }
     default: return state;
   }

@@ -68,14 +68,14 @@ export const ToggleBtnSuccessBack = () => ({
 
 export const buttonToggleBack = answer => dispatch => {
   dispatch(ToggleBtnSuccessBack());
-  console.log(answer);
+  // console.log(answer);
   dispatch(userAnswer(answer)); 
 }
 
 //This action will make a POST with whether the question was correct or incorrect
 export const userAnswer = (answer) => dispatch => 
 {
-  console.log(answer);
+  // console.log(answer);
   //This is a mockup of the new GET dispatch we will make to get a new word in this action, 
   //after our POST method returns a the new vocab word
   fetch(`${API_BASE_URL}/users/`, {
@@ -98,5 +98,3 @@ export const userAnswer = (answer) => dispatch =>
   })
 }
 
-//Send true or false -> to POST endpoint?
-//Then click another button to grab next question at //questions/next -> retrieve new 

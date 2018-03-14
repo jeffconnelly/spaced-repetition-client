@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {clearAuth} from '../actions/auth';
-import {showLoginForm } from '../actions/useractions';
+import {showLoginForm} from '../actions/useractions';
 import {showRegistrationForm} from '../actions/useractions';
 import {clearAuthToken} from '../local-storage';
 import './header-bar.css';
