@@ -4,7 +4,6 @@
 import {API_BASE_URL} from '../config';
 
 // console.log(API_BASE_URL);
-
 //This action fetches a question from the server, and will update the local state with that array of questions.
 export const FETCH_QUESTION_SUCCESS = 'FETCH_QUESTION_SUCCESS';
 export const fetchQuestionSuccess = question => ({
@@ -68,10 +67,12 @@ export const ToggleBtnSuccessBack = () => ({
 
 export const buttonToggleBack = () => dispatch => {
   dispatch(ToggleBtnSuccessBack());
+  // dispatch(userAnswer()); 
 }
 
 //This action will make a POST with whether the question was correct or incorrect
 export const userAnswer = (answer) => dispatch => 
+
 {
   console.log(answer);
   fetch(`${API_BASE_URL}/deck/`, {
@@ -93,23 +94,5 @@ export const userAnswer = (answer) => dispatch =>
   })
 }
 
-// State with question and answer
-// Is correct variable in state as well
-
-// Is correct === true , or is correct === false
-// 
-//Send is correct boolean to backend
-
 //Send true or false -> to POST endpoint?
-
-//insertLast()
-
-// insertLast(question)
-
-// if(isCorrect) mValue = * 2
-
-// else mValue = 1
-
-// insertAt(mValue, question)
-
 //Then click another button to grab next question at //questions/next -> retrieve new 

@@ -5,7 +5,7 @@ import {fetchProtectedData} from '../actions/protected-data';
 import {hideLoginForm} from '../actions/useractions';
 import {hideRegistrationForm} from '../actions/useractions';
 import {fetchQuestion} from '../actions/questions';
-import {fetchQuestion2} from '../actions/questions';
+// import {fetchQuestion2} from '../actions/questions';
 import {buttonToggle} from '../actions/questions';
 import {buttonToggleBack} from '../actions/questions';
 import {checkAnswer} from '../actions/questions';
@@ -18,14 +18,14 @@ export class Dashboard extends React.Component {
         this.props.dispatch(hideLoginForm());
         this.props.dispatch(hideRegistrationForm());
         this.props.dispatch(fetchQuestion());
-        this.props.dispatch(fetchQuestion2(this.props.userId));
+        // this.props.dispatch(fetchQuestion2(this.props.userId));
     }
 
     render() {
       // console.log('is correct render', this.props.isCorrect);
       // console.log('is correct feedback', this.props.answerFeedback);
       // console.log('is correct feedback', this.props.answerFeedback);
-      console.log('user id is: ', this.props.userId);
+      // console.log('user id is: ', this.props.userId);
       let cardCall = this.props.currentQuestion;
       let questionFeedback = this.props.answerFeedback;
       // console.log(questionFeedback);
@@ -33,22 +33,17 @@ export class Dashboard extends React.Component {
         if (!this.props.buttonToggle) {
         return (
           <section className="dashboard-wrapper">
-          <h1>Spaced Repetition Page</h1>
-              <div className="dashboard-username">
-                  Username: {this.props.username}
-              </div>
-              <div className="dashboard-name">Name: {this.props.name}</div>
               <div className="flashcard-wrapper">
-              <h1>{cardCall}</h1>
+              <h1 className="card-header">{cardCall}</h1>
               <form className="search-form" onSubmit = { (e) => {
                 e.preventDefault();
-                console.log(this.input.value);
+                // console.log(this.input.value);
                 this.props.dispatch(checkAnswer(this.input.value));
               }}>
-              <label htmlFor="search">Answer</label>
+              <label className="answer-label"htmlFor="search">Translation:</label>
               <input className="search-input" type="search" ref={input => (this.input = input)} />
               <button type="button" onClick={() => this.props.dispatch(buttonToggle())}
-              className="search-button">Check Answer</button>
+              className="search-button btn-gradient orange">Check Answer</button>
               </form>
               </div>
           </section>
@@ -57,26 +52,20 @@ export class Dashboard extends React.Component {
       else if (this.props.buttonToggle) {
         return (
           <section className="dashboard-wrapper">
-          <h1>Spaced Repetition Page</h1>
-              <div className="dashboard-username">
-                  Username: {this.props.username}
-              </div>
-              <div className="dashboard-name">Name: {this.props.name}</div>
               <div className="flashcard-wrapper">
-              <h1>{questionFeedback}</h1>
+              <h1 className="card-header">{questionFeedback}</h1>
               <form className="search-form" onSubmit = { (e) => {
                 e.preventDefault();
                 console.log(this.input.value);
                 // this.props.dispatch(fetchQuestion(this.input.value))
               }}>
-              
-              <button type="button" onClick={() => this.props.dispatch(buttonToggleBack())} className="search-button">Next Question</button>
+
+              <button  type="button" onClick={() => this.props.dispatch(buttonToggleBack())} className="search-button btn-gradient orange">Next Question</button>
               </form>
               </div>
           </section>
       );
-      }
-        
+      }  
     }
 }
 
@@ -109,3 +98,9 @@ export default requiresLogin()(connect(mapStateToProps)(Dashboard));
   //   className="search-button">Check Answer</button>
 
 
+  // <h1>Spaced Repetition Page</h1>
+
+  // <div className="dashboard-username">
+  //                 Username: {this.props.username}
+  //             </div>
+  //             <div className="dashboard-name">Name: {this.props.name}</div>

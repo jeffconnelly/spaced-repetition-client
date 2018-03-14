@@ -16,11 +16,11 @@ const initialState = {
 export function questionReducer(state=initialState, action) {
   switch (action.type) {
     case FETCH_QUESTION_SUCCESS:
-    console.log(action.question.answer);
+    console.log(state.btnToggle);
     return {
       ...state,
       currentQuestion: action.question.question,
-      currentAnswer: action.question.answer
+      currentAnswer: action.question.answer,
     }
     case CHECK_QUESTION_SUCCESS:
     // console.log('input is: ', action.input);
@@ -53,3 +53,6 @@ export function questionReducer(state=initialState, action) {
 }
 
 export default questionReducer;
+
+
+// btnToggle: !state.btnToggle
