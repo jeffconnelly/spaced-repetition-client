@@ -32,7 +32,7 @@ margin-top: 30%;
 }
 
 .next-form {
-  margin-top: 40%;
+  margin-top: 45%;
 }
 
 h1 {
@@ -57,8 +57,10 @@ h1 {
 .search-input {
   display: inline-block;
   padding: 100px;
-
+  font-size: 100px;
+  height: 100px;
 }
+
 .answer-label {
   display: block;
   margin-bottom: 10px;
@@ -69,8 +71,9 @@ h1 {
 }
 
 .counter-wrapper {
-  margin-left: 65%;
+  margin-left: 62%;
   margin-top: 10px;
+  font-size: .9em;
 }
 
 

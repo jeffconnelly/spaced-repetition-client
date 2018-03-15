@@ -16,7 +16,9 @@ const initialState = {
   btnToggle: false,
   answerFeedback: null,
   questionCorrect: 0,
-  questionTotal: 10
+  questionTotal: 0,
+  score: 2,
+  attempts: 4
 };
 
 export function questionReducer(state=initialState, action) {
@@ -36,6 +38,7 @@ export function questionReducer(state=initialState, action) {
     // console.log('action: ', action.input);
     // console.log('currentAnswer', state.currentAnswer);
     console.log(state.questionCorrect);
+    state.questionTotal++;
     if (action.input === state.currentAnswer) {
       state.questionCorrect++;
       return {
@@ -54,8 +57,8 @@ export function questionReducer(state=initialState, action) {
     return {
       ...state,
       btnToggle: true,
-      currentQuestion: null,
-      currentAnswer: null,
+      // currentQuestion: null,
+      // currentAnswer: null,
     }
     case TOGGLE_BTN_SUCCESS_BACK:
     // console.log(state.btnToggle);
@@ -72,6 +75,7 @@ export function questionReducer(state=initialState, action) {
       currentAnswer: null,
       isCorrect: null,
       questionCorrect: 0,
+      questionTotal: 0,
     }
     default: return state;
   }

@@ -61,16 +61,16 @@ export const ToggleBtnSuccessBack = () => ({
     type: TOGGLE_BTN_SUCCESS_BACK,
 });
 
-export const buttonToggleBack = answer => dispatch => {
+export const buttonToggleBack = (answer, id) => dispatch => {
   dispatch(ToggleBtnSuccessBack());
-  dispatch(userAnswer(answer)); 
+  dispatch(userAnswer(answer, id)); 
 }
 
 //This action will make a POST with whether the question was correct or incorrect
-export const userAnswer = (answer) => dispatch => 
+export const userAnswer = (answer, id) => dispatch => 
 {
   console.log(answer);
-  fetch(`${API_BASE_URL}/users/`, {
+  fetch(`${API_BASE_URL}/users/${id}`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
@@ -81,12 +81,16 @@ export const userAnswer = (answer) => dispatch =>
     }),
   })
   .then(res => {
-  dispatch(fetchQuestionSuccess({_id: "5aa81505734d1d6b71206501", question: "Hola", answer: "hello"}));
-    console.log(res)
     if (!res.ok) {
       return Promise.reject(res.statusText);
     }
     return res.json();
+  })
+  .then(question => {
+    // console.log(question.currentQuestion.head.next.value);
+    // let newQuestion = question.currentQuestion.head.value.question;
+    // let newAnswer = question.currentQuestion.head.value.answer;
+     dispatch(fetchQuestionSuccess(question.currentQuestion.head.next.value));
   })
 }
 
