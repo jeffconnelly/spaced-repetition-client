@@ -1,9 +1,5 @@
-//All actions that deal with flashcard questions data
-//from the server
-
 import {API_BASE_URL} from '../config';
 
-// console.log(API_BASE_URL);
 //This action fetches a question from the server, and will update the local state with that array of questions.
 export const FETCH_QUESTION_SUCCESS = 'FETCH_QUESTION_SUCCESS';
 export const fetchQuestionSuccess = question => ({
@@ -11,21 +7,7 @@ export const fetchQuestionSuccess = question => ({
     question
 });
 
-// export const fetchQuestion = () => dispatch => {
-//   fetch(`${API_BASE_URL}/questions/`)
-//     .then(res => {
-//       if (!res.ok) {
-//       return Promise.reject(res.statusText);
-//     }
-//     return res.json();
-//     })
-//     .then(question => {
-//       console.log(question);
-//       dispatch(fetchQuestionSuccess(question[0]))
-//     })
-// };
-
-export const fetchQuestion2 = id => dispatch => {
+export const fetchQuestion = id => dispatch => {
   fetch(`${API_BASE_URL}/users/${id}/current`)
     .then(res => {
       if (!res.ok) {
@@ -51,10 +33,6 @@ export const TOGGLE_BTN_SUCCESS = 'TOGGLE_BTN_SUCCESS';
 export const buttonToggle = () => ({
     type: TOGGLE_BTN_SUCCESS,
 });
-
-// export const buttonToggle = () => dispatch => {
-//   dispatch(ToggleBtnSuccess());
-// }
 
 export const TOGGLE_BTN_SUCCESS_BACK = 'TOGGLE_BTN_SUCCESS_BACK';
 export const ToggleBtnSuccessBack = () => ({
