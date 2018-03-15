@@ -22,11 +22,22 @@ export class Dashboard extends React.Component {
     render() {
       let correctPercent = this.props.questionCorrect * 100;
       let totalPercent = this.props.questionTotal * 100;
+
+
+      console.log(this.props.score);
+      console.log(this.props.attempted);
+
+
       let scorePercent = this.props.score * 100;
-      let attemptPercent = this.props.attempts * 100;
+      let attemptPercent = this.props.attempted * 100;
 
       let indivQuestionPercent;
-      if (this.props.score) {
+
+      if (this.props.score === 0) {
+        indivQuestionPercent = 0;
+      }
+
+      else if (this.props.score > 0) {
         indivQuestionPercent = Math.round((scorePercent / attemptPercent) * 100);
       }
 
@@ -52,6 +63,7 @@ export class Dashboard extends React.Component {
               <li>Total accuracy: {percentResult}% </li>
               </div>
               <h1 className="card-header">{cardCall}</h1>
+              <p>Accuracy for {this.props.currentQuestion} : {indivQuestionPercent}%</p>
               <form className="search-form" onSubmit = { (e) => {
                 e.preventDefault();
                 this.props.dispatch(checkAnswer(this.input.value));
@@ -71,7 +83,6 @@ export class Dashboard extends React.Component {
                 <div className="flashcard-wrapper">
                 <h1 className="card-header">{questionFeedback}</h1>
                 <h2>{incorrectFeedback}</h2>
-                <p>Accuracy for {this.props.currentQuestion} : {indivQuestionPercent}%</p>
                 <form className="search-form next-form" onSubmit = { (e) => {
                   e.preventDefault();
                 }}>
@@ -98,7 +109,7 @@ const mapStateToProps = state => {
         questionCorrect: state.questionReducer.questionCorrect,
         questionTotal: state.questionReducer.questionTotal,
         score: state.questionReducer.score,
-        attempts: state.questionReducer.attempts
+        attempted: state.questionReducer.attempted
     };
 };
 

@@ -68,6 +68,9 @@ export const userAnswer = (answer, id) => dispatch =>
     // console.log(question.currentQuestion.head.next.value);
     // let newQuestion = question.currentQuestion.head.value.question;
     // let newAnswer = question.currentQuestion.head.value.answer;
+    console.log(question.currentQuestion.head.value);
+    console.log(question.currentQuestion.head.next.value);
+
      dispatch(fetchQuestionSuccess(question.currentQuestion.head.next.value));
   })
 }

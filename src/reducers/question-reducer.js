@@ -17,19 +17,21 @@ const initialState = {
   answerFeedback: null,
   questionCorrect: 0,
   questionTotal: 0,
-  score: 2,
-  attempts: 4
+  score: 0,
+  attempted: 0
 };
 
 export function questionReducer(state=initialState, action) {
   switch (action.type) {
     case FETCH_QUESTION_SUCCESS:
-    // console.log(action.question);
-    // console.log(state.currentQuestion);
+    console.log(state.score);
+    console.log(state.attempted);
     return {
       ...state,
       currentQuestion: action.question.question,
       currentAnswer: action.question.answer,
+      score: action.question.score,
+      attempted: action.question.attempted
     }
     case CHECK_QUESTION_SUCCESS:
     // console.log('input is: ', action.input);
