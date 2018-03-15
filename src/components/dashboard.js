@@ -22,23 +22,16 @@ export class Dashboard extends React.Component {
     render() {
       let correctPercent = this.props.questionCorrect * 100;
       let totalPercent = this.props.questionTotal * 100;
-
-
-      console.log(this.props.score);
-      console.log(this.props.attempted);
-
-
       let scorePercent = this.props.score * 100;
       let attemptPercent = this.props.attempted * 100;
 
       let indivQuestionPercent;
-
-      if (this.props.score === 0) {
-        indivQuestionPercent = 0;
-      }
-
-      else if (this.props.score > 0) {
+      let percentWord;
+      let percentString;
+      if (this.props.attempted !== 0) {
+        percentWord = 'Word Accuracy: '
         indivQuestionPercent = Math.round((scorePercent / attemptPercent) * 100);
+        percentString = '%'
       }
 
       let percentResult;
@@ -63,7 +56,7 @@ export class Dashboard extends React.Component {
               <li>Total accuracy: {percentResult}% </li>
               </div>
               <h1 className="card-header">{cardCall}</h1>
-              <p>Accuracy for {this.props.currentQuestion} : {indivQuestionPercent}%</p>
+              {percentWord}{indivQuestionPercent}{percentString}
               <form className="search-form" onSubmit = { (e) => {
                 e.preventDefault();
                 this.props.dispatch(checkAnswer(this.input.value));
