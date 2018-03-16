@@ -39,12 +39,10 @@ export class Dashboard extends React.Component {
         percentResult = Math.round((correctPercent / totalPercent) * 100);
       }
    
-      // console.log('user id is: ', this.props.userId);
       let cardCall = this.props.currentQuestion;
       let questionFeedback = this.props.answerFeedback;
       let incorrectFeedback;
       let correctAnswerFeedback;
-
       let formRender;
 
       if (this.props.answerFeedback === 'Correct!') {

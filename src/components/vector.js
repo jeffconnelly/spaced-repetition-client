@@ -2,7 +2,6 @@ import React from 'react';
 import './vector.css';
 
 export default function Vector(props) {
-
   return (
     <section className="vector-wrapper">
     <div className="blurb-wrapper blurb-one">

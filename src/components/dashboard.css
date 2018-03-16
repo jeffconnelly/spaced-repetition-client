@@ -39,10 +39,6 @@ margin-top: 20%;
   margin-top: 44%;
 }
 
-h1 {
-  /* margin-top: 10px; */
-}
-
 .light-header {
   font-weight: 300;
 }
@@ -87,7 +83,6 @@ h1 {
 span {
   color: #FF773D;
 }
-
 
 @media (max-width: 760px) {
   .flashcard-wrapper {

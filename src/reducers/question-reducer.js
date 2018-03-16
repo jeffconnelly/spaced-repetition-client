@@ -34,8 +34,6 @@ export function questionReducer(state=initialState, action) {
       attempted: action.question.attempted
     }
     case CHECK_QUESTION_SUCCESS:
-    // console.log('input is: ', action.input);
-    // console.log('action: ', action.input);
     console.log(state.questionCorrect);
     state.questionTotal++;
     if (action.input === state.currentAnswer) {

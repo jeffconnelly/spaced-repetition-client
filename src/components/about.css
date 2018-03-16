@@ -21,16 +21,11 @@
   color: #FF773D;
   font-weight: 300;
   display: inline-block;
-  /* border-bottom: 1px solid grey; */
-  /* text-transform: uppercase; */
 }
 
 
 
 @media (max-width: 640px) {
   .about-wrapper  {
-    /* margin-top: 200px; */
-
   }
-
 }

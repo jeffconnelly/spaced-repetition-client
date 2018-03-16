@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-evenly;
   min-height: 250px;
-  /* border-bottom: 2px so/lid rgb(164, 164, 164); */
+  /* border-bottom: 2px solid rgb(164, 164, 164); */
 }
 
 .blurb-wrapper {
@@ -27,6 +27,9 @@ li {
   font-size: 1.2em;
 }
 
+
+/*CSS if I want each blurb to have side borders instead of a background color box */
+
 /* .blurb-one {
   border-right: 1px solid black;
   padding-right: 10px;
@@ -45,8 +48,6 @@ li {
 
 
 @media (max-width: 640px) {
-
-
   .vector-wrapper {
     flex-direction: column;
     justify-content: center;
