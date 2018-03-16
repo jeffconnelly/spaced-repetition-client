@@ -44,11 +44,32 @@ export class Dashboard extends React.Component {
       let questionFeedback = this.props.answerFeedback;
       let incorrectFeedback;
       let correctAnswerFeedback;
+
+      let formRender;
+
+      if (this.props.answerFeedback === 'Correct!') {
+        formRender = (
+          <form className="search-form next-form correct-form" onSubmit = { (e) => {
+            e.preventDefault();
+          }}>
+          <button type="button" onClick={() => this.props.dispatch(buttonToggleBack(this.props.isCorrect, this.props.userId))} className="search-button btn-gradient orange next">Next Question</button>
+          </form>
+        );
+      }
+
       if (this.props.answerFeedback === 'Incorrect!') {
         incorrectFeedback = 'Youll see this question more often';
         correctAnswerFeedback = (
           <h2 className="light-header">Correct answer: <span>{this.props.currentAnswer}</span></h2>
         );
+        formRender = (
+          <form className="search-form next-form" onSubmit = { (e) => {
+            e.preventDefault();
+          }}>
+          <button type="button" onClick={() => this.props.dispatch(buttonToggleBack(this.props.isCorrect, this.props.userId))} className="search-button btn-gradient orange next">Next Question</button>
+          </form>
+        );
+     
       }
 
         if (!this.props.buttonToggle) {
@@ -80,11 +101,7 @@ export class Dashboard extends React.Component {
                 <h1 className="card-header">{questionFeedback}</h1>
                 {correctAnswerFeedback}
                 <h3 className="light-header">{incorrectFeedback}</h3>
-                <form className="search-form next-form" onSubmit = { (e) => {
-                  e.preventDefault();
-                }}>
-                <button type="button" onClick={() => this.props.dispatch(buttonToggleBack(this.props.isCorrect, this.props.userId))} className="search-button btn-gradient orange next">Next Question</button>
-                </form>
+                { formRender}
                 </div>
             </section>
       );
