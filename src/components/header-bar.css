@@ -11,6 +11,7 @@
   margin-bottom: 0px;
   flex-direction: row-reverse;
   margin-right: 10%;
+  padding-bottom: 5px;
 }
 
 .user-span {
@@ -40,7 +41,7 @@
 	text-decoration: none;
 	color: white;
   padding: 5px 10px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   margin-left: auto;
 	position: relative;
 	border: 1px solid rgba(0,0,0,0.21);
@@ -52,3 +53,6 @@
  .current-user {
    font-weight: 300;
  }
+/* 
+  /* background: #56CCF2;  /* fallback for old browsers 
+  background: -webkit-linear-gradient(to right, #b9c1ca, rgb(208, 210, 211));  /* Chrome 10-25, Safari 5.1-6 */
