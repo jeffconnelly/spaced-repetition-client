@@ -13,9 +13,10 @@
   margin-right: 10%;
 }
 
-/* ul:first-child {
-  margin-right: auto;
-} */
+.user-span {
+  margin-bottom: 0;
+  color: #F55536;
+}
 
 .login-text {
   list-style-type: none;
@@ -30,19 +31,24 @@
 
  .app-name-li {
    align-self: flex-end;
-   /* margin-left: auto; */
  }
 
  .btn-logout {
+  align-self: flex-end;
   display: inline-block;
   font-size: 1.2em;
 	text-decoration: none;
 	color: white;
   padding: 5px 10px;
   margin-bottom: 20px;
+  margin-left: auto;
 	position: relative;
 	border: 1px solid rgba(0,0,0,0.21);
 	border-bottom: 4px solid rgba(0,0,0,0.21);
 	border-radius: 4px;
 	text-shadow: 0 1px 0 rgba(0,0,0,0.15);
+ }
+
+ .current-user {
+   font-weight: 300;
  }

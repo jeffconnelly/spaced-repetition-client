@@ -20,8 +20,6 @@ export class Dashboard extends React.Component {
     }
 
     render() {
-
-
       let correctPercent = this.props.questionCorrect * 100;
       let totalPercent = this.props.questionTotal * 100;
       let scorePercent = this.props.score * 100;
@@ -45,9 +43,12 @@ export class Dashboard extends React.Component {
       let cardCall = this.props.currentQuestion;
       let questionFeedback = this.props.answerFeedback;
       let incorrectFeedback;
-
+      let correctAnswerFeedback;
       if (this.props.answerFeedback === 'Incorrect!') {
         incorrectFeedback = 'Youll see this question more often';
+        correctAnswerFeedback = (
+          <h2 className="light-header">Correct answer: <span>{this.props.currentAnswer}</span></h2>
+        );
       }
 
         if (!this.props.buttonToggle) {
@@ -77,7 +78,7 @@ export class Dashboard extends React.Component {
             <section className="dashboard-wrapper">
                 <div className="flashcard-wrapper">
                 <h1 className="card-header">{questionFeedback}</h1>
-                <h2 className="light-header">Correct answer: <span>{this.props.currentAnswer}</span></h2>
+                {correctAnswerFeedback}
                 <h3 className="light-header">{incorrectFeedback}</h3>
                 <form className="search-form next-form" onSubmit = { (e) => {
                   e.preventDefault();

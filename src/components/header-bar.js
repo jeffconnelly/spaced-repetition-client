@@ -14,13 +14,17 @@ export class HeaderBar extends React.Component {
     }
 
     render() {
-      // console.log(this.props.showRegistrationForm);
         // Only render the log out button if we are logged in
+        let currentUsername;
         let logOutButton;
         let loginFormNav;
         let regFormNav;
 
         if (this.props.loggedIn) {
+          currentUsername = (
+           <li className="current-user">Logged in as <span className="user-span">{this.props.currentUser.username}</span></li>
+          );
+
             logOutButton = (
                 <button className="red btn-logout" onClick={() => this.logOut()}>Log out</button>
             );
@@ -40,6 +44,7 @@ export class HeaderBar extends React.Component {
                {loginFormNav}
                 {regFormNav}
                 {logOutButton}
+                {currentUsername}
                 </ul>
             </div>
         );
@@ -50,6 +55,7 @@ const mapStateToProps = state => ({
     loggedIn: state.auth.currentUser !== null,
     ShowLoginForm: state.userReducer.showLoginForm,
     ShowRegistrationForm: state.userReducer.showForm,
+    currentUser: state.auth.currentUser
 });
 
 export default connect(mapStateToProps)(HeaderBar);

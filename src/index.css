@@ -7,3 +7,7 @@ body {
 p, li {
   line-height: 1.5;
 }
+
+p {
+  font-weight: 300;
+}

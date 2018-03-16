@@ -16,9 +16,13 @@
 }
 
 .about-header {
-  font-size: 2.5em;
+  font-size: 3em;
   letter-spacing: 2px;  
-  color: rgb(68, 68, 68);
+  color: #FF773D;
+  font-weight: 300;
+  display: inline-block;
+  /* border-bottom: 1px solid grey; */
+  /* text-transform: uppercase; */
 }
 
 
