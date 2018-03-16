@@ -20,6 +20,8 @@ export class Dashboard extends React.Component {
     }
 
     render() {
+
+
       let correctPercent = this.props.questionCorrect * 100;
       let totalPercent = this.props.questionTotal * 100;
       let scorePercent = this.props.score * 100;
@@ -75,7 +77,8 @@ export class Dashboard extends React.Component {
             <section className="dashboard-wrapper">
                 <div className="flashcard-wrapper">
                 <h1 className="card-header">{questionFeedback}</h1>
-                <h2>{incorrectFeedback}</h2>
+                <h2 className="light-header">Correct answer: <span>{this.props.currentAnswer}</span></h2>
+                <h3 className="light-header">{incorrectFeedback}</h3>
                 <form className="search-form next-form" onSubmit = { (e) => {
                   e.preventDefault();
                 }}>
@@ -102,7 +105,8 @@ const mapStateToProps = state => {
         questionCorrect: state.questionReducer.questionCorrect,
         questionTotal: state.questionReducer.questionTotal,
         score: state.questionReducer.score,
-        attempted: state.questionReducer.attempted
+        attempted: state.questionReducer.attempted,
+        currentAnswer: state.questionReducer.currentAnswer
     };
 };
 
