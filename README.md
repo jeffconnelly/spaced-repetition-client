@@ -6,6 +6,12 @@
 
 > https://wonderful-shirley-bab865.netlify.com/
 
+# Tech Stack
+
+* Front End: React.js & Redux, CSS3 with Flexbox & Mobile Responsiveness
+* Back End: Node.js, Express.js, REST API endpoints, MongoDB, Mongoose, Passport, bcryptjs
+* Workflow: Git, Github, Heroku, Netlify, NPM, Yarn, Trello
+
 # Screenshots
 
 > Header
