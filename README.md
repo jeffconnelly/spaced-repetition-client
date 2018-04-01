@@ -1,6 +1,15 @@
 # Luz
 
-> A spaced repetition app made to help you learn spanish built with Node.js, React.js, Redux, MongoDB/Mongoose and Express.
+> A Spanish language learning app made to help you learn with a spaced repetition learning methodology - built with Node.js, React.js, Redux, MongoDB/Mongoose and Express.
+
+# Features
+
+> Luz is centered around spaced repetition, or the idea of a 'forgetting curve'.  We built a linked list data structure that employs or spaced repetition pattern, so users will receieve the vocab questions they are struggling on more often.
+* Receive vocab words specific to your user account
+* When questions are answered correctly, cards go to the back of the stack. 
+* When answered incorrectly, you'll see that vocab word more often
+* Tracks your total accuracy per session
+* Tracks your individual word accuracy that persists in the database for each user. 
 
 # Demo
 
